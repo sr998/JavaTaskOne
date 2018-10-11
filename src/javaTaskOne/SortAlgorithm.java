@@ -6,25 +6,25 @@ import java.util.Scanner;
 public class SortAlgorithm {
 
 
-    public static int[][] algorithm () throws IOException {
+    public static short[][] algorithm () throws IOException {
 
-        int choices = SortAlgorithm.choices();
+        short choices = (short) SortAlgorithm.choices();
 
-        int[][] massiveIn = new int[0][];
+        short[][] massiveIn = new short[0][];
         if (choices == 1) {
 
             massiveIn = Import.inputRandomArray();
         }else if(choices==2){
             massiveIn = Import.inputArrayFromKeyboard();
         }
-        int size = massiveIn.length;
+        short size = (short) massiveIn.length;
 
 
-        for(int i = 0; i < size - 1; i++) {
-            for(int j = i + 1; j < size; j++) {
-                for(int m = 0; m <size; m++) {
+        for(short i = 0; i < size - 1; i++) {
+            for(short j = (short) (i + 1); j < size; j++) {
+                for(short m = 0; m <size; m++) {
                     if(massiveIn[i][m] > massiveIn[j][m]) {
-                        int temp = massiveIn[i][m];
+                        short temp = massiveIn[i][m];
                         massiveIn[i][m] = massiveIn[j][m];
                         massiveIn[j][m] = temp;
                     }
@@ -34,12 +34,12 @@ public class SortAlgorithm {
 return massiveIn;
     }
 
-    public static int choices (){
+    public static short choices (){
         Scanner in = new Scanner(System.in);
         System.out.println("Input method of matrix filling (random/manual)");
         String choice=in.nextLine();
 
-        int choices = 0;
+        short choices = 0;
         switch (choice) {
             case("random"):{
                 choices = 1;

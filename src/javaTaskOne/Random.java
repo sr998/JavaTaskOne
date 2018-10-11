@@ -1,7 +1,7 @@
 package javaTaskOne;
 
 public class Random {
-    public static int randomArray(int q, int w) {
-        return (int) (Math.random() * q + w);
+    public static short randomArray(int q, int w) {
+        return (short) (Math.random() * q + w);
     }
 }
