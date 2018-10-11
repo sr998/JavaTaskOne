@@ -18,22 +18,18 @@ public class SortAlgorithm {
             massiveIn = Import.inputArrayFromKeyboard();
         }
         int size = massiveIn.length;
-        int[] temp = new int[size];
-        for (int i = 0; i < massiveIn[0].length; i++) {
-            for (int j = 0; j < massiveIn[0].length; j++) {
-                if (massiveIn[0][i] > massiveIn[0][j]) {
-                    for (int k = 0; k < size; k++) {
-                        temp[k] = massiveIn[k][j];
-                    }
-                    for (int k = 0; k < size; k++) {
-                        massiveIn[k][j] = massiveIn[k][i];
-                    }
-                    for (int k = 0; k < size; k++) {
-                        massiveIn[k][i] = temp[k];
+
+
+        for(int i = 0; i < size - 1; i++) {
+            for(int j = i + 1; j < size; j++) {
+                for(int m = 0; m <size; m++) {
+                    if(massiveIn[i][m] > massiveIn[j][m]) {
+                        int temp = massiveIn[i][m];
+                        massiveIn[i][m] = massiveIn[j][m];
+                        massiveIn[j][m] = temp;
                     }
                 }
             }
-
         }
 return massiveIn;
     }
