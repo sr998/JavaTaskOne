@@ -58,5 +58,17 @@ public class Import {
                 PrintArray.print(source,"Unsorted");
             return source;
         }
+
+    public static int[][] guiRandomArray(int intN,int intM,int[][] source) throws IOException {
+
+
+        for (short i=0; i < source.length;i++){
+            for (short j = 0; j < source.length; j++) {
+                source[i][j]= (short) Random.randomArray(20,-10);
+            }
+        }
+
+        return source;
+    }
     }
 
