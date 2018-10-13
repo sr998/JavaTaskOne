@@ -18,8 +18,8 @@ public class GUI extends JFrame {
     private JTextField nField = new JTextField("", 2);
     private JTextArea input = new JTextArea("Input numbers you want to insert", 10, 10);
     private JLabel label = new JLabel("Input");
-    private JTextField out = new JTextField("", 2);
-    private JTextField outnew = new JTextField("", 2);
+    private JTextArea out = new JTextArea(3, 2);
+    private JTextArea outnew = new JTextArea(3,2);
     private JRadioButton radioButton = new JRadioButton("Manual input");
     private JRadioButton radioButton2 = new JRadioButton("Random");
     private JLabel labelSource = new JLabel("Source:");
@@ -28,11 +28,11 @@ public class GUI extends JFrame {
 
     public GUI() {
         super("Frame");
-        this.setBounds(250, 250, 500, 200);
+        this.setBounds(400, 400, 500, 550);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         Container container = this.getContentPane();
-        container.setLayout(new GridLayout(8, 6, 0, 4));
+        container.setLayout(new GridLayout(7, 6, 0, 4));
 
         container.add(labelN);
         container.add(nField);
@@ -40,6 +40,7 @@ public class GUI extends JFrame {
         container.add(mField);
         container.add(label);
         container.add(input);
+
 
 
         ButtonGroup group = new ButtonGroup();
@@ -65,6 +66,7 @@ public class GUI extends JFrame {
         container.add(button);
 
 
+
     }
 
     class ButtonEventListener implements ActionListener {
@@ -82,7 +84,7 @@ public class GUI extends JFrame {
                     int intM = Integer.parseInt(m);
                     int intN = Integer.parseInt(n);
 
-                    int[][] arr = new int[intN][intM];
+                    short[][] arr = new short[intN][intM];
                     try {
                         Import.guiRandomArray(intN, intM, arr);
                     } catch (IOException e1) {
@@ -92,13 +94,15 @@ public class GUI extends JFrame {
 
                     for (int i = 0; i < arr.length; i++) {
                         for (int j = 0; j < arr[i].length; j++) {
-                            sb.append(String.valueOf(+arr[i][j] + " "));
+                            if(j == intN-1)
+                                sb.append(String.valueOf(arr[i][j])+" ").append("\n");
+                            else sb.append(String.valueOf(arr[i][j])+" ");
                         }
                         out.setText(sb.toString());
 
                     }
 
-                    int[][] arr2 = new int[intN][intM];
+                    short[][] arr2 = new short[intN][intM];
 
                     arr2 = SortAlgorithm.clearAlgorithm(arr);
 
@@ -106,11 +110,12 @@ public class GUI extends JFrame {
 
                     for (int i = 0; i < arr2.length; i++) {
                         for (int j = 0; j < arr2[i].length; j++) {
-
-                            sb2.append(String.valueOf(arr[i][j] + " "));
-
+                            if(j == intN-1)
+                                sb2.append(String.valueOf(arr2[i][j])+" ").append("\n");
+                            else sb2.append(String.valueOf(arr2[i][j])+" ");
                         }
                         outnew.setText(sb2.toString());
+
                     }
 
                 }
@@ -132,9 +137,9 @@ public class GUI extends JFrame {
 
                     if (str.length == intM * intM) {
 
-                        int[] intChars = guiMethods.strArrayToIntArray(str);
+                        short[] intChars = guiMethods.strArrayToIntArray(str);
 
-                        int[][] arr = new int[intN][intM];
+                        short[][] arr = new short[intN][intM];
 
 
                         arr = guiMethods.arrayToMatrix(intChars, intN, intM);
@@ -144,13 +149,15 @@ public class GUI extends JFrame {
 
                         for (int i = 0; i < arr.length; i++) {
                             for (int j = 0; j < arr[i].length; j++) {
-                                sb.append(String.valueOf(+arr[i][j] + " "));
+                                if(j == intN-1)
+                                    sb.append(String.valueOf(arr[i][j])+" ").append("\n");
+                                else sb.append(String.valueOf(arr[i][j])+" ");
                             }
                             out.setText(sb.toString());
 
                         }
 
-                        int[][] arr2 = new int[intN][intM];
+                        short[][] arr2 = new short[intN][intM];
 
                         arr2 = SortAlgorithm.clearAlgorithm(arr);
 
@@ -158,11 +165,12 @@ public class GUI extends JFrame {
 
                         for (int i = 0; i < arr2.length; i++) {
                             for (int j = 0; j < arr2[i].length; j++) {
-
-                                sb2.append(String.valueOf(arr[i][j] + " "));
-
+                                if(j == intN-1)
+                                    sb2.append(String.valueOf(arr2[i][j])+" ").append("\n");
+                                else sb2.append(String.valueOf(arr2[i][j])+" ");
                             }
                             outnew.setText(sb2.toString());
+
                         }
 
                         // JOptionPane.showMessageDialog(null, m, "Output", JOptionPane.PLAIN_MESSAGE);

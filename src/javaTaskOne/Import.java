@@ -59,7 +59,7 @@ public class Import {
             return source;
         }
 
-    public static int[][] guiRandomArray(int intN,int intM,int[][] source) throws IOException {
+    public static short[][] guiRandomArray(int intN, int intM, short[][] source) throws IOException {
 
 
         for (short i=0; i < source.length;i++){
