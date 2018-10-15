@@ -3,15 +3,13 @@ package javaTaskOne;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Scanner;
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
+
 
 
 public class GUI extends JFrame {
-    private JButton button = new JButton("Press");
+
+    private JButton button = new JButton("Calculate");
     private JLabel labelM = new JLabel("Input M");
     private JLabel labelN = new JLabel("Input N");
     private JTextField mField = new JTextField("", 2);
@@ -19,7 +17,7 @@ public class GUI extends JFrame {
     private JTextArea input = new JTextArea("Input numbers you want to insert", 10, 10);
     private JLabel label = new JLabel("Input");
     private JTextArea out = new JTextArea(3, 2);
-    private JTextArea outnew = new JTextArea(3,2);
+    private JTextArea outnew = new JTextArea(3, 2);
     private JRadioButton radioButton = new JRadioButton("Manual input");
     private JRadioButton radioButton2 = new JRadioButton("Random");
     private JLabel labelSource = new JLabel("Source:");
@@ -27,7 +25,7 @@ public class GUI extends JFrame {
 
 
     public GUI() {
-        super("Frame");
+        super("Matrix Calculator");
         this.setBounds(400, 400, 500, 550);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -42,7 +40,6 @@ public class GUI extends JFrame {
         container.add(input);
 
 
-
         ButtonGroup group = new ButtonGroup();
         group.add(radioButton);
         group.add(radioButton2);
@@ -55,16 +52,11 @@ public class GUI extends JFrame {
         button.addActionListener(new ButtonEventListener());
 
 
-        //radioButton.addActionListener(new ButtonEventListener());
-        // radioButton2.addActionListener(new ButtonEventListener());
-
-        //  button.setPreferredSize(new Dimension(400, 200));
         container.add(labelSource);
         container.add(out);
         container.add(labelSorted);
         container.add(outnew);
         container.add(button);
-
 
 
     }
@@ -81,8 +73,8 @@ public class GUI extends JFrame {
                 if (mField.getText().equals("") || nField.getText().equals("")) {
                     JOptionPane.showMessageDialog(null, "You entered wrong N or M", "Error", JOptionPane.PLAIN_MESSAGE);
                 } else {
-                    int intM = Integer.parseInt(m);
-                    int intN = Integer.parseInt(n);
+                    short intM = (short) Integer.parseInt(m);
+                    short intN = (short) Integer.parseInt(n);
 
                     short[][] arr = new short[intN][intM];
                     try {
@@ -90,17 +82,7 @@ public class GUI extends JFrame {
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                    StringBuffer sb = new StringBuffer();
-
-                    for (int i = 0; i < arr.length; i++) {
-                        for (int j = 0; j < arr[i].length; j++) {
-                            if(j == intN-1)
-                                sb.append(String.valueOf(arr[i][j])+" ").append("\n");
-                            else sb.append(String.valueOf(arr[i][j])+" ");
-                        }
-                        out.setText(sb.toString());
-
-                    }
+                    guiMethods.printArray(arr,intN,out);
 
                     short[][] arr2 = new short[intN][intM];
 
@@ -108,15 +90,7 @@ public class GUI extends JFrame {
 
                     StringBuffer sb2 = new StringBuffer();
 
-                    for (int i = 0; i < arr2.length; i++) {
-                        for (int j = 0; j < arr2[i].length; j++) {
-                            if(j == intN-1)
-                                sb2.append(String.valueOf(arr2[i][j])+" ").append("\n");
-                            else sb2.append(String.valueOf(arr2[i][j])+" ");
-                        }
-                        outnew.setText(sb2.toString());
-
-                    }
+                    guiMethods.printArray(arr2,intN,outnew);
 
                 }
             }
@@ -131,8 +105,8 @@ public class GUI extends JFrame {
                 } else {
 
 
-                    int intM = Integer.parseInt(m);
-                    int intN = Integer.parseInt(n);
+                    short intM = (short) Integer.parseInt(m);
+                    short intN = (short) Integer.parseInt(n);
                     String[] str = input.getText().split(" ");
 
                     if (str.length == intM * intM) {
@@ -145,48 +119,22 @@ public class GUI extends JFrame {
                         arr = guiMethods.arrayToMatrix(intChars, intN, intM);
 
 
-                        StringBuffer sb = new StringBuffer();
-
-                        for (int i = 0; i < arr.length; i++) {
-                            for (int j = 0; j < arr[i].length; j++) {
-                                if(j == intN-1)
-                                    sb.append(String.valueOf(arr[i][j])+" ").append("\n");
-                                else sb.append(String.valueOf(arr[i][j])+" ");
-                            }
-                            out.setText(sb.toString());
-
-                        }
+                       guiMethods.printArray(arr,intN,out);
 
                         short[][] arr2 = new short[intN][intM];
 
                         arr2 = SortAlgorithm.clearAlgorithm(arr);
 
-                        StringBuffer sb2 = new StringBuffer();
+                        guiMethods.printArray(arr2,intN,outnew);
 
-                        for (int i = 0; i < arr2.length; i++) {
-                            for (int j = 0; j < arr2[i].length; j++) {
-                                if(j == intN-1)
-                                    sb2.append(String.valueOf(arr2[i][j])+" ").append("\n");
-                                else sb2.append(String.valueOf(arr2[i][j])+" ");
-                            }
-                            outnew.setText(sb2.toString());
-
-                        }
-
-                        // JOptionPane.showMessageDialog(null, m, "Output", JOptionPane.PLAIN_MESSAGE);
                     } else {
-                        JOptionPane.showMessageDialog(null, "You entered the wrong number of variables into TextArea(input)", "Output", JOptionPane.PLAIN_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "You entered the wrong variables into TextArea(Input)", "Output", JOptionPane.PLAIN_MESSAGE);
                     }
                 }
             }
 
         }
 
-        // message += "Text is "+input.getText()+ "\n";
-        // message += (radioButton.isSelected() ? "Radio1" : "Radio2") + "is selected\n";
-
-
-        //out.setText(Arrays.toString(intChars));
 
     }
 }

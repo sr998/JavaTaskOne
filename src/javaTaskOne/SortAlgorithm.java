@@ -52,18 +52,23 @@ return massiveIn;
         Scanner in = new Scanner(System.in);
         System.out.println("Input method of matrix filling (random/manual)");
         String choice=in.nextLine();
+        if (choice.equals("manual")|| choice.equals("random")) {
+            short choices = 0;
+            switch (choice) {
+                case ("random"): {
+                    choices = 1;
+                    break;
+                }
+                case ("manual"): {
+                    choices = 2;
 
-        short choices = 0;
-        switch (choice) {
-            case("random"):{
-                choices = 1;
-                break;}
-            case("manual"):{
-                choices = 2;
+                    break;
+                }
 
-                break;}
-
-        }
-        return choices;
+            }
+            return choices;
+        }else{
+            System.out.println("Wrong choice! options available random/manual");
+        throw new IndexOutOfBoundsException();}
     }
 }
