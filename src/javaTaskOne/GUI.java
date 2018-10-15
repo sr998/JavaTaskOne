@@ -70,7 +70,10 @@ public class GUI extends JFrame {
 
                 String m = mField.getText();
                 String n = nField.getText();
-                if (mField.getText().equals("") || nField.getText().equals("")) {
+                boolean isNumberM = guiMethods.isNumeric(m);
+                boolean isNumberN = guiMethods.isNumeric(m);
+
+                if ((m.equals("") || n.equals("") || isNumberM == false || isNumberN == false)|| (short)Integer.parseInt(m)< (short)Integer.parseInt(n)) {
                     JOptionPane.showMessageDialog(null, "You entered wrong N or M", "Error", JOptionPane.PLAIN_MESSAGE);
                 } else {
                     short intM = (short) Integer.parseInt(m);
@@ -99,8 +102,10 @@ public class GUI extends JFrame {
                 radioButton.setText("Input numbers you want to insert");
                 String m = mField.getText();
                 String n = nField.getText();
+                boolean isNumberM = guiMethods.isNumeric(m);
+                boolean isNumberN = guiMethods.isNumeric(m);
 
-                if (mField.getText().equals("") || nField.getText().equals("")) {
+                if ((m.equals("") || n.equals("") || isNumberM == false || isNumberN == false)|| (short)Integer.parseInt(m)< (short)Integer.parseInt(n)) {
                     JOptionPane.showMessageDialog(null, "You entered wrong N or M", "Error", JOptionPane.PLAIN_MESSAGE);
                 } else {
 
