@@ -1,4 +1,4 @@
-package javaTaskOne;
+package Misc;
 
 public class GetRandomMatrixShort {
     public static short randomArray(int q, int w) {
