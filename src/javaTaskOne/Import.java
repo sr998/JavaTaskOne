@@ -37,7 +37,7 @@ return num;
         short[][] source = new short[Import.inputVariable()][Import.inputVariable()];
         for (short i=0; i < source.length;i++){
             for (short j = 0; j < source.length; j++) {
-                source[i][j]= (short) Random.randomArray(20,-10);
+                source[i][j]= (short) GetRandomMatrixShort.randomArray(20,-10);
             }
         }
         PrintArray.print(source,"Unsorted");
@@ -104,7 +104,7 @@ try {
 
         for (short i=0; i < source.length;i++){
             for (short j = 0; j < source.length; j++) {
-                source[i][j]= (short) Random.randomArray(20,-10);
+                source[i][j]= (short) GetRandomMatrixShort.randomArray(20,-10);
             }
         }
 

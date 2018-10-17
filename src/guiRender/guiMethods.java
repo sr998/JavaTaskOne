@@ -1,4 +1,4 @@
-package javaTaskOne;
+package guiRender;
 
 import javax.swing.*;
 

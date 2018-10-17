@@ -1,5 +1,7 @@
 package javaTaskOne;
 
+import guiRender.guiMethods;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -19,7 +21,7 @@ public class GUI extends JFrame {
     private JTextArea out = new JTextArea(3, 2);
     private JTextArea outnew = new JTextArea(3, 2);
     private JRadioButton radioButton = new JRadioButton("Manual input");
-    private JRadioButton radioButton2 = new JRadioButton("Random");
+    private JRadioButton radioButton2 = new JRadioButton("GetRandomMatrixShort");
     private JLabel labelSource = new JLabel("Source:");
     private JLabel labelSorted = new JLabel("Sorted:");
 
