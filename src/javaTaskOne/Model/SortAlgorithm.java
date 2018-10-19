@@ -1,4 +1,4 @@
-package javaTaskOne;
+package javaTaskOne.Model;
 
 import java.io.IOException;
 import java.util.Scanner;

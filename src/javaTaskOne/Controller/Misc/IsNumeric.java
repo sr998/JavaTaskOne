@@ -1,4 +1,4 @@
-package Misc;
+package javaTaskOne.Controller.Misc;
 
 public class IsNumeric {
 
