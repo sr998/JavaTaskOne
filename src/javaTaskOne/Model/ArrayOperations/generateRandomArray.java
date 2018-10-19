@@ -1,10 +1,10 @@
-package javaTaskOne.Model;
+package javaTaskOne.Model.ArrayOperations;
 
 import javaTaskOne.Controller.Misc.Random;
 
 import java.io.IOException;
 
-public class Import {
+public class generateRandomArray {
 
 
     public static short[][] guiRandomArray(short[][] source) throws IOException {

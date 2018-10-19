@@ -1,6 +1,6 @@
-package javaTaskOne.Model;
+package javaTaskOne.View.GUI;
 
-import javaTaskOne.Controller.MyEvent;
+import javaTaskOne.Controller.Events.ButtonPressedEvent;
 
 import java.awt.*;
 import javax.swing.*;
@@ -45,7 +45,7 @@ public class GUI extends JFrame {
         container.add(radioButton2);
 
 
-        button.addActionListener(new MyEvent.ButtonEventListener());
+        button.addActionListener(new ButtonPressedEvent.ButtonEventListener());
 
 
         container.add(labelSource);

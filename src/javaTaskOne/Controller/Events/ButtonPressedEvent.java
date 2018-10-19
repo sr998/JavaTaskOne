@@ -1,21 +1,22 @@
-package javaTaskOne.Controller;
+package javaTaskOne.Controller.Events;
 
 
-import javaTaskOne.Controller.Misc.IsNumeric;
+import javaTaskOne.Controller.Misc.IsStringNumeric;
 import javaTaskOne.Controller.Misc.isArrayNumericChecker;
-import javaTaskOne.Model.Import;
-import javaTaskOne.Model.guiMethods;
-import javaTaskOne.Model.SortAlgorithm;
-import javaTaskOne.Model.GUI;
+import javaTaskOne.Model.ArrayOperations.SortAlgorithm;
+import javaTaskOne.Model.ArrayOperations.generateRandomArray;
+import javaTaskOne.Model.ArrayOperations.guiMethods;
+import javaTaskOne.Model.PrintingArray.PrintArray;
+import javaTaskOne.View.GUI.GUI;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public  class MyEvent extends GUI {
+public class ButtonPressedEvent extends GUI {
 
-   public static class ButtonEventListener implements ActionListener {
+    public static class ButtonEventListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
 
@@ -24,7 +25,7 @@ public  class MyEvent extends GUI {
                 GUI.getButton();
                 String n = getnField().getText();
 
-                boolean isNumberN = IsNumeric.isNumeric(n);
+                boolean isNumberN = IsStringNumeric.isNumeric(n);
 
                 if (n.equals("") || isNumberN == false) {
                     JOptionPane.showMessageDialog(null, "You entered wrong N or M", "Error", JOptionPane.PLAIN_MESSAGE);
@@ -33,11 +34,11 @@ public  class MyEvent extends GUI {
 
                     short[][] arr = new short[intN][intN];
                     try {
-                        Import.guiRandomArray(arr);
+                        generateRandomArray.guiRandomArray(arr);
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
-                    guiMethods.printArray(arr, intN, getOut());
+                    PrintArray.printArray(arr, intN, getOut());
 
                     short[][] arr2 = new short[intN][intN];
 
@@ -45,7 +46,7 @@ public  class MyEvent extends GUI {
 
                     StringBuffer sb2 = new StringBuffer();
 
-                    guiMethods.printArray(arr2, intN, getOutnew());
+                    PrintArray.printArray(arr2, intN, getOutnew());
 
                 }
             }
@@ -55,7 +56,7 @@ public  class MyEvent extends GUI {
 
                 String n = getnField().getText();
 
-                boolean isNumberN = IsNumeric.isNumeric(n);
+                boolean isNumberN = IsStringNumeric.isNumeric(n);
 
                 if (n.equals("") || isNumberN == false) {
                     JOptionPane.showMessageDialog(null, "You entered wrong N or M", "Error", JOptionPane.PLAIN_MESSAGE);
@@ -81,13 +82,13 @@ public  class MyEvent extends GUI {
                             arr = guiMethods.arrayToMatrix(intChars, intN, intN);
 
 
-                            guiMethods.printArray(arr, intN, getOut());
+                            PrintArray.printArray(arr, intN, getOut());
 
                             short[][] arr2 = new short[intN][intN];
 
                             arr2 = SortAlgorithm.clearAlgorithm(arr);
 
-                            guiMethods.printArray(arr2, intN, getOutnew());
+                            PrintArray.printArray(arr2, intN, getOutnew());
 
                         } else {
                             JOptionPane.showMessageDialog(null, "You entered the wrong variables into TextArea(Input)", "Output", JOptionPane.PLAIN_MESSAGE);

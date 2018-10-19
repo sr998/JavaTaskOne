@@ -1,6 +1,6 @@
 package javaTaskOne.Controller.Misc;
 
-public class IsNumeric {
+public class IsStringNumeric {
 
     public static boolean isNumeric(String str)
     {
