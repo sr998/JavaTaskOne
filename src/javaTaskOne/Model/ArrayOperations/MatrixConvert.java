@@ -2,7 +2,7 @@ package javaTaskOne.Model.ArrayOperations;
 
 import javax.swing.*;
 
-public class guiMethods {
+public class MatrixConvert {
 
     public static short[] strArrayToIntArray(String[] a){
         short[] b = new short[a.length];

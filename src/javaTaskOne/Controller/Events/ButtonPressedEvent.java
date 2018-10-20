@@ -2,10 +2,10 @@ package javaTaskOne.Controller.Events;
 
 
 import javaTaskOne.Controller.Misc.IsStringNumeric;
-import javaTaskOne.Controller.Misc.isArrayNumericChecker;
+import javaTaskOne.Controller.Misc.IsArrayNumericChecker;
 import javaTaskOne.Model.ArrayOperations.SortAlgorithm;
-import javaTaskOne.Model.ArrayOperations.generateRandomArray;
-import javaTaskOne.Model.ArrayOperations.guiMethods;
+import javaTaskOne.Model.ArrayOperations.GenerateRandomArray;
+import javaTaskOne.Model.ArrayOperations.MatrixConvert;
 import javaTaskOne.Model.PrintingArray.PrintArray;
 import javaTaskOne.View.GUI.GUI;
 
@@ -34,7 +34,7 @@ public class ButtonPressedEvent extends GUI {
 
                     short[][] arr = new short[intN][intN];
                     try {
-                        generateRandomArray.guiRandomArray(arr);
+                        GenerateRandomArray.guiRandomArray(arr);
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
@@ -66,7 +66,7 @@ public class ButtonPressedEvent extends GUI {
                     short intN = (short) Integer.parseInt(n);
 
                     String[] str = getInput().getText().split(" ");
-                    boolean isArrayNumeric = isArrayNumericChecker.isArrayNumeric(str);
+                    boolean isArrayNumeric = IsArrayNumericChecker.isArrayNumeric(str);
 
                     if (isArrayNumeric == false) {
                         JOptionPane.showMessageDialog(null, "You need to enter only short numbers to the input field!", "Error", JOptionPane.PLAIN_MESSAGE);
@@ -74,12 +74,12 @@ public class ButtonPressedEvent extends GUI {
 
                         if (str.length == intN * intN) {
 
-                            short[] intChars = guiMethods.strArrayToIntArray(str);
+                            short[] intChars = MatrixConvert.strArrayToIntArray(str);
 
                             short[][] arr = new short[intN][intN];
 
 
-                            arr = guiMethods.arrayToMatrix(intChars, intN, intN);
+                            arr = MatrixConvert.arrayToMatrix(intChars, intN, intN);
 
 
                             PrintArray.printArray(arr, intN, getOut());

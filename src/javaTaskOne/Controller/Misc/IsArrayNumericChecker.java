@@ -1,6 +1,6 @@
 package javaTaskOne.Controller.Misc;
 
-public class isArrayNumericChecker {
+public class IsArrayNumericChecker {
 
     public static boolean isArrayNumeric (String[] arr){
         for (int i = 0; i < arr.length; i++) {

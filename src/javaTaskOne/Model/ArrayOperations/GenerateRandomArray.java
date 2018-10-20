@@ -4,7 +4,7 @@ import javaTaskOne.Controller.Misc.Random;
 
 import java.io.IOException;
 
-public class generateRandomArray {
+public class GenerateRandomArray {
 
 
     public static short[][] guiRandomArray(short[][] source) throws IOException {
